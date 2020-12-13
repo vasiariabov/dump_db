@@ -1,0 +1,29 @@
+#!groovy
+// Runs build and deploy to develop on push
+// update file, for test jenkins webhook
+
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent { 
+		label 'master'
+		}
+	triggers { pollSCM('* * * * *') }
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+		timestamps()
+	}
+    stages {
+		  stage("lockal message") {
+			  steps {
+				  echo " =========== master branch was changed"
+			  }
+		  }
+                   stage("telegram message trigger") {
+                             steps {
+ 
+
+                   }
+         }
+        }
+       }  
