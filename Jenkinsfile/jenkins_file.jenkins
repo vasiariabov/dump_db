@@ -21,7 +21,7 @@ pipeline {
 		  }
                    stage("telegram message trigger") {
                              steps {
-ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'hosts.txt', playbook: 'playbook5.yml', sudo: true, sudoUser: 'vasia'
+ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'hosts.txt', playbook: 'playbook5.yml'
                    }
          }
         }
