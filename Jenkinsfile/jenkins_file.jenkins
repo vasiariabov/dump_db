@@ -19,7 +19,7 @@ pipeline {
 				  echo " =========== master branch was changed"
 			  }
 		  }
-                   stage("telegram message trigger") {
+                   stage("start ansible playbook") {
                              steps {
 ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'hosts.txt', playbook: 'playbook4.yml'
                    }
