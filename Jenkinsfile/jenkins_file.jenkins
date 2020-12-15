@@ -28,7 +28,7 @@ ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'h
          stage('read') {
            steps {
                script {
-                   def data = readFile(file: '/home/vasia/ansible/pg_node_dev_1/usr/backup/url.txt')
+                   def data = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
                    println(data)
 	       }
 	   }
