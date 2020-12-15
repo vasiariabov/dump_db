@@ -25,16 +25,13 @@ ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'h
                    }
          }
 	    
-                    stage ("Push Notification") {
-                             steps {
-				     script {
-					     withCredentials([string(credentialsId: ‘telegramToken’, variable: ‘TOKEN’),
-                                             string(credentialsId: ‘telegramChatId’, variable: ‘CHAT_ID’)]) {
-                                             telegramSend(messsage:”test message”,chatId:${CHAT_ID})
-               
-              }
-            
-	  } 
-         }
-        }
-       }  
+         stage('read') {
+           steps {
+               script {
+                   def data = readFile(file: '/home/vasia/ansible/pg_node_dev1/usr/bacup/url.txt')
+                   println(data)
+	       }
+	   }
+	 }      
+    }
+}
