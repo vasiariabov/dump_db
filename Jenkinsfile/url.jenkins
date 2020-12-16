@@ -15,7 +15,7 @@ pipeline {
     stages {
 		  stage("lockal message") {
 			  steps {
-				  echo " =========== master branch was changed"
+				  echo " =========== master branch was changed========"
 			  }
 		  }
                    
