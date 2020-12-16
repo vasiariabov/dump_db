@@ -24,21 +24,20 @@ pipeline {
                script {
                    myVar = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
                     echo "${myVar}"
-		    sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d url="${myVar}" '
-
+		   
 	    }
 	   }
 	 }   
-    }
+        }
 	    post {
 		    always {
 			    
-                       discordSend description: '', footer: '"${myVar}"', image: '', link: '', result: '', thumbnail: '', title: 'env.JOB_NAME.', webhookURL: 'https://discordapp.com/api/webhooks/788703357342711848/W7szy2yPfGhmp8Qxc1lnVc2_y8qB7I2t5mDxNqkl2YIJb40fdVzJ3ltTr9Z0mUJsNSZC'
+                       discordSend description: '', footer: '"${myVar}"', image: '', link: '"${myVar}"', result: '', thumbnail: '', title: 'env.JOB_NAME.', webhookURL: 'https://discordapp.com/api/webhooks/788703357342711848/W7szy2yPfGhmp8Qxc1lnVc2_y8qB7I2t5mDxNqkl2YIJb40fdVzJ3ltTr9Z0mUJsNSZC'
                    }
                  }            
    
-   
-  }
+        
+              }
 
 
 
