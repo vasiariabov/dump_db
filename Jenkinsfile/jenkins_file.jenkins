@@ -18,7 +18,7 @@ pipeline {
     stages {
 		  stage("lockal message") {
 			  steps {
-				  echo " =========== master branch was changed"
+				  echo " =========== master branch was changed======="
 			  }
 		         }
                    stage("start ansible playbook") {
