@@ -1,6 +1,8 @@
 #!groovy
 // Runs build and deploy to develop on push
 // update file, for test jenkins webhook
+myVar = 'string'
+myVar2 = 'string'
 
 properties([disableConcurrentBuilds()])
 
@@ -18,20 +20,28 @@ pipeline {
 			  steps {
 				  echo " =========== master branch was changed"
 			  }
-		  }
+		         }
                    stage("start ansible playbook") {
                              steps {
 ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'hosts.txt', playbook: 'playbook4.yml'
                    }
-         }
-	    
-         stage('read') {
+                  }
+	 stage('read') {
            steps {
                script {
-                   def data = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
-                   println(data)
-	       }
+                   myVar = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
+		   myVar2 = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/text.txt')
+                    echo "${myVar}"
+		    echo "${myVar2}"   
+        
+	    }
 	   }
 	 }      
-    }
-}
+       }
+            post {
+		    always {
+                        discordSend description: '', footer:"${myVar2}",  image: '', link: "${myVar}", result: '', thumbnail: '', title: 'base_dump_link', webhookURL: 'https://discordapp.com/api/webhooks/788703357342711848/W7szy2yPfGhmp8Qxc1lnVc2_y8qB7I2t5mDxNqkl2YIJb40fdVzJ3ltTr9Z0mUJsNSZC'
+                   }
+                 }            
+                }
+
