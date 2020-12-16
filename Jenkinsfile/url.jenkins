@@ -35,7 +35,7 @@ pipeline {
 	    post {
 		    always {
 		        
-                        discordSend description: '', footer:'',  image: '', link: "${myVar}", result: '', thumbnail: '', title: 'base_dump_link', webhookURL: 'https://discordapp.com/api/webhooks/788703357342711848/W7szy2yPfGhmp8Qxc1lnVc2_y8qB7I2t5mDxNqkl2YIJb40fdVzJ3ltTr9Z0mUJsNSZC'
+                        discordSend description: '', footer:"${myVar2}",  image: '', link: "${myVar}", result: '', thumbnail: '', title: 'base_dump_link', webhookURL: 'https://discordapp.com/api/webhooks/788703357342711848/W7szy2yPfGhmp8Qxc1lnVc2_y8qB7I2t5mDxNqkl2YIJb40fdVzJ3ltTr9Z0mUJsNSZC'
                    }
                  }            
    
