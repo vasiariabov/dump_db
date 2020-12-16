@@ -1,7 +1,7 @@
 #!groovy
 // Runs build and deploy to develop on push
 // update file, for test jenkins webhook
-myVar = 'initial_value'
+myVar = 'string'
 properties([disableConcurrentBuilds()])
 
 pipeline {
