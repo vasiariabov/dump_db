@@ -2,6 +2,7 @@
 // Runs build and deploy to develop on push
 // update file, for test jenkins webhook
 myVar = 'string'
+myVar2 = 'string'
 properties([disableConcurrentBuilds()])
 
 pipeline {
