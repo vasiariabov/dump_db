@@ -32,7 +32,7 @@ pipeline {
    
         stage("telegram message trigger") {
                              steps {
-     sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d text=${myVar} '
+     sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d text=""${myVar}"" '
 
                    }
                  }            
