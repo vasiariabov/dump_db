@@ -23,7 +23,9 @@ pipeline {
            steps {
                script {
                    myVar = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
+		   myVar2 = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/txt.txt')
                     echo "${myVar}"
+		    echo "${myVar2}
 		   
 	    }
 	   }
