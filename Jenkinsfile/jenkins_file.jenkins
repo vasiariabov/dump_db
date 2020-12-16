@@ -23,7 +23,7 @@ pipeline {
 		         }
                    stage("start ansible playbook") {
                              steps {
-ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: 'hosts.txt', playbook: 'playbook4.yml'
+ansiblePlaybook credentialsId: 'vasiliy', installation: 'ansible', inventory: '/home/jenk/workspace/dump_database/hosts.txt', playbook: '/home/jenk/workspace/dump_database/playbook4.yml'
                    }
                   }
 	 stage('read') {
