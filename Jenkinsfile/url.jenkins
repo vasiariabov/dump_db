@@ -5,9 +5,7 @@ myVar = 'string'
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent { 
-		label 'master'
-		}
+    agent any
 	triggers { pollSCM('* * * * *') }
 	options {
 		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
