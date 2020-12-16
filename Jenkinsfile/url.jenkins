@@ -1,1 +1,43 @@
+#!groovy
+// Runs build and deploy to develop on push
+// update file, for test jenkins webhook
 
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent { 
+		label 'master'
+		}
+	triggers { pollSCM('* * * * *') }
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+		timestamps()
+	}
+    stages {
+		  stage("lockal message") {
+			  steps {
+				  echo " =========== master branch was changed"
+			  }
+		  }
+                   
+	    
+         stage('read') {
+           steps {
+               script {
+                   def data = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
+                   println(data)
+	    }
+	   }
+	 }   
+   stage("telegram message complete") {
+                             steps {
+                  sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d text=" (data) "' 
+   
+   
+  }
+  
+}
+
+}
+
+}
