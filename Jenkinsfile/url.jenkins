@@ -19,7 +19,7 @@ pipeline {
 			  }
 		  }
                    
-	    stage('start Ansible playbook) {
+	    stage('start Ansible playbook') {
 			  steps {
 				 ansiblePlaybook credentialsId: 'pg_node_dev_1', disableHostKeyChecking: true, installation: 'ansible', inventory: 'host.txt', playbook: 'testplaybook.yml'
 			  }
