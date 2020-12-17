@@ -1,0 +1,2 @@
+[pg_node_dev_1]
+pg_node_dev_1 ansible_host=116.203.235.140 
