@@ -15,7 +15,7 @@ pipeline {
     stages {
 		  stage('SCM Checkout') {
 			  steps {
-				  git 'git branch: 'main', url: 'https://github.com/vasiariabov/dump_db.git' 
+				  git branch: 'main', url: 'https://github.com/vasiariabov/dump_db.git' 
           }
 		 
       }
