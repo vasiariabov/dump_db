@@ -4,4 +4,4 @@
 
   roles:
 
-  - upload_dump
+  - dump_db
