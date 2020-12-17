@@ -16,8 +16,33 @@ pipeline {
 		  stage('SCM Checkout') {
 			  steps {
 				  git branch: 'main', url: 'https://github.com/vasiariabov/dump_db.git' 
-          }
-		 
-      }
-    }
-}	
+
+                    }
+		  }
+                   
+	    stage('start Ansible playbook') {
+			  steps {
+				 ansiblePlaybook credentialsId: 'pg_node_dev_1', disableHostKeyChecking: true, installation: 'ansible', inventory: 'host.txt', playbook: 'testplaybook.yml'
+			  }
+		  }
+	     
+              stage('read') {
+                          steps {
+                                 script {
+                                         urlVar = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/url.txt')
+		                          text = readFile(file: '/home/jenk/workspace/dump_database/pg_node_dev_1/usr/backup/text.txt')
+
+		   
+	    }
+	   }
+	 }   
+        }
+	    post {
+		    always {
+		        
+                        discordSend description: '', footer:"${textVar}",  image: '', link: "${urlVar}", result: '', thumbnail: '', title: 'base_dump_link', webhookURL: 'https://discordapp.com/api/webhooks/788703357342711848/W7szy2yPfGhmp8Qxc1lnVc2_y8qB7I2t5mDxNqkl2YIJb40fdVzJ3ltTr9Z0mUJsNSZC'
+                   }
+                 }            
+   
+        
+              }
