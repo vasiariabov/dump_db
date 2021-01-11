@@ -10,7 +10,7 @@ trigger:
       - push
 
 
-steps:
+
 - name: discord
   pull: always
   image: appleboy/drone-discord
